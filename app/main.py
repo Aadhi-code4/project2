@@ -30,13 +30,14 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 async def serve_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.api_route("/home")
-def home():
-    return{"home"}
+from fastapi import FastAPI
 
-@app.get("/health")
-def health_check():
-    return {"status": "ok"}
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello from Vercel!"}
+
 
 @ app.api_route("/Tds_ques/", methods=["POST", "GET"])
 async def UI_api_endpoint(
