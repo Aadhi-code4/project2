@@ -110,14 +110,13 @@ async def api_endpoint(
 
 if __name__ == "__main__":
     import uvicorn
-    
-    logging.info("Starting server...")  # This won't log anymore
+
     uvicorn.run(
         "app.main:app",
-        host="127.0.0.1",
+        host="0.0.0.0",  # Allow external connections in a Vercel deployment
         port=8000,
         reload=True,
-        log_level="critical",  # Suppress uvicorn logs
+        log_level="critical",
     )
 
 #venv\Scripts\activate 
