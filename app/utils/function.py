@@ -67,7 +67,7 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(filename)s %(threadName)s %(message)s",
     encoding="utf-8"  
 )
-
+logging.getLogger().setLevel(logging.CRITICAL)
 extract_path = "app/data/extracted_files/"
 
 def vscode_code_s():  # 1

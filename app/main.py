@@ -25,6 +25,7 @@ logging.basicConfig(
     format="%(asctime)s %(levelname)s %(filename)s %(threadName)s %(message)s",
     encoding="utf-8"  
 )
+logging.getLogger().setLevel(logging.CRITICAL)
 templates = Jinja2Templates(directory="app/templates")
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 

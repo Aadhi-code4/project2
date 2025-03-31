@@ -15,7 +15,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)s %(filename)s %(threadName)s %(message)s",
     encoding="utf-8")
-
+logging.getLogger().setLevel(logging.CRITICAL)
 # Get API Token
 AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
 if not AIPROXY_TOKEN:
