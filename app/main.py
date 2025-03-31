@@ -32,7 +32,9 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 @app.get("/")
 async def serve_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
-
+@app.api_route("/home")
+def home():
+    return{"home"}
 
 @ app.api_route("/Tds_ques/", methods=["POST", "GET"])
 async def UI_api_endpoint(
@@ -115,8 +117,7 @@ if __name__ == "__main__":
         "app.main:app",
         host="0.0.0.0",  # Allow external connections in a Vercel deployment
         port=8000,
-        reload=True,
-        log_level="critical",
+        reload=True
     )
 
 #venv\Scripts\activate 
