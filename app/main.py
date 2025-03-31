@@ -109,12 +109,15 @@ async def api_endpoint(
 
 if __name__ == "__main__":
     import uvicorn
-    import os
-    print(os.getlogin())  # Who is running the app?
-
-    logging.info("Starting server...")
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
-
+    
+    logging.info("Starting server...")  # This won't log anymore
+    uvicorn.run(
+        "app.main:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True,
+        log_level="critical",  # Suppress uvicorn logs
+    )
 
 #venv\Scripts\activate 
 #python -m app.main

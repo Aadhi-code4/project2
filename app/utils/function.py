@@ -44,6 +44,8 @@ import colorsys
 import logging
 import platform
 
+from dotenv import load_dotenv
+load_dotenv()
 
 AIPROXY_TOKEN = os.getenv("AIPROXY_TOKEN")
 if not AIPROXY_TOKEN:
