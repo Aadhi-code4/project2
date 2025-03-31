@@ -1,18 +1,9 @@
 {
   "builds": [
-    {
-      "src": "app/main.py",
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.12"
-      }
-    }
+    { "src": "app/main.py", "use": "@vercel/python" }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app/main.py"
-    }
+    { "src": "/(.*)", "dest": "app/main.py" }
   ],
-  "startCommand": "python -m app.main"
+  "startCommand": "uvicorn app.main:app --host 0.0.0.0 --port 8000"
 }

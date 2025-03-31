@@ -29,9 +29,14 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 @app.get("/")
 async def serve_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
 @app.api_route("/home")
 def home():
     return{"home"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 
 @ app.api_route("/Tds_ques/", methods=["POST", "GET"])
 async def UI_api_endpoint(
