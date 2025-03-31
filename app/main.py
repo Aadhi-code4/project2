@@ -30,11 +30,8 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 async def serve_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-from fastapi import FastAPI
 
-app = FastAPI()
-
-@app.get("/")
+@app.get("/ok")
 def read_root():
     return {"message": "Hello from Vercel!"}
 
